@@ -1,23 +1,28 @@
 class Solution {
 public:
-    vector<int> countBits(int n) {
-       /*countBits[0]=0;    
+    vector<int> countBits(int n) 
+    {
+        vector<int> countB;
+        // countB[0]=0;
+        countB.push_back(0);
         for(int i=1;i<=n;i++)
         {
             int count=0;
-            while(i)
+            int temp=i;
+            while(temp)
             {
-                i=i&(i-1);
+                temp=temp&(temp-1);
                 count++;
             }
-            countBits[i]=count;
+            // countB[i]=count;
+            countB.push_back(count);
         }
-        return countBits;
-        */
-        vector<int>res(n+1);
-        res[0] = 0;
-        for(int i = 1 ; i <= n ; i++)
-            res[i] = res[i/2] + (i&1);
-        return res;
+        return countB;
+       
+        // vector<int>res(n+1);
+        // res[0] = 0;
+        // for(int i = 1 ; i <= n ; i++)
+        //     res[i] = res[i/2] + (i&1);
+        // return res;
     }
 };
