@@ -1,40 +1,40 @@
 int first_pos(vector<int>& nums, int target){
-      int l=0;
-      int h=nums.size()-1;
-      int mid= l+ (h-l)/2;
+      int start=0;
+      int end=nums.size()-1;
+      int mid= start + (end-start)/2;
       int ans=-1;
         
-      while(l<=h){
+      while(start <= end){
           if(nums[mid] == target){
-              ans=mid;
-              h=mid-1;
+              ans = mid;
+              end = mid-1;
           }
           else if(target > nums[mid])
-              l=mid+1;
+              start = mid+1;
           else
-              h=mid-1;
+              end = mid-1;
             
-          mid= l+ (h-l)/2;
+          mid= start + (end-start)/2;
       }
       return ans;
 }
 int last_pos(vector<int>& nums, int target){
-    int l=0;
-    int h=nums.size()-1;
-    int mid= l+ (h-l)/2;
+    int start=0;
+    int end=nums.size()-1;
+    int mid= start+ (end-start)/2;
     int ans=-1;
         
-    while(l<=h){
+    while(start <= end){
         if(nums[mid] == target){
             ans=mid;
-            l=mid+1;
+            start=mid+1;
         }
         else if(target > nums[mid])
-            l=mid+1;
+            start = mid+1;
         else
-            h=mid-1;
+            end = mid-1;
             
-        mid= l+ (h-l)/2;
+        mid= start + (end- start)/2;
     }
     return ans;
 }
